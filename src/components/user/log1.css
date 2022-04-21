@@ -379,3 +379,73 @@ html {
         display: none;
     }
 }
+
+.secondPageTitle {
+    font-family: 'TT Firs Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+/* identical to box height */
+    text-align: center;
+    color: #000000;
+    margin-top: 60px;
+}
+
+.teacher__div {
+    width: 710px;
+    height: 82.02px;
+    border: 2px solid #7D63AD;
+    box-sizing: border-box;
+    border-radius: 30px !important;
+    margin-top: 25px;
+    background-color: #7D63AD;
+}
+
+.teacher__div__text {
+    margin-left: 48px;
+}
+
+.teacher__div__title {
+    margin-top: 15px;
+    font-size: 24px;
+    font-family: TT Firs Neue;
+    line-height: 30.96px;
+    color: #ffffff;
+}
+
+.teacher__div__description {
+    margin-top: -14px;
+    font-size: 16px;
+    color: #ffffffff;
+    font-family: 'TT Firs Neue';
+}
+
+.student__div {
+    width: 710px;
+    height: 82.02px;
+    border: 2px solid #7D63AD;
+    box-sizing: border-box;
+    border-radius: 30px !important;
+    margin-top: 25px;
+    /* background-color: #7D63AD; */
+}
+
+.student__div__text {
+    margin-left: 48px;
+}
+
+.student__div__title {
+    margin-top: 15px;
+    font-size: 24px;
+    font-family: TT Firs Neue;
+    line-height: 30.96px;
+    color: #7D63AD;
+}
+
+.student__div__description {
+    margin-top: -14px;
+    font-size: 16px;
+    color: #7D63AD;
+    font-family: 'TT Firs Neue';
+}
