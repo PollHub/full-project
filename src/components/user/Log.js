@@ -6,7 +6,6 @@ import './log1.css';
 // import "./styles.css";
 
 export default function App() {
-  const [count, setCount] = useState(0);
 
   let [login, setLogin] = useState('');
   let [password, setPassword] = useState('');
@@ -28,22 +27,33 @@ export default function App() {
       .catch(error => console.log('error', error));
   }
 
-  const increaseCount = () => {
-    return setCount(count + 1);
-  }
-  const decreaseCount = () => {
-    return setCount(count - 1)
-  }
-
   let [page, setPage] = useState(0)
+  let [role, stRole] = useState('user')
 
-  // useEffect(() => {
-  //     setText(JSON.parse(window.localStorage.getItem('text')));
-  // }, []);
+  function checkRole(className) {
+    let teacher = document.querySelector('.teacher__div');
+    let student = document.querySelector('.student__div');
+    let checked = document.querySelector('.checked__role')
+    // console.log(document.querySelector('.'+className));
 
-  // useEffect(() => {
-  //     window.localStorage.setItem('text', text);
-  // }, [text]);
+    // checked.classList.remove('checked__role');
+    // checked.classList.forEach(i => {
+    //   console.log(i)
+    // })
+
+    if (className === 'student__div') {
+      student.classList.remove('checked__role')
+      teacher.classList.add('checked__role')
+      stRole('user');
+    } else {
+      teacher.classList.remove('checked__role')
+      student.classList.add('checked__role')
+      stRole('student')
+    }
+    console.log(role)
+    
+  }
+
 
   if (page === 0) {
     return (
@@ -148,13 +158,15 @@ export default function App() {
               </div>
               <div className="inputtype">
                 <p className="secondPageTitle">Выберите свою цель</p>
-                <div className="teacher__div">
+                {/* <div className="teacher__div"> */}
+                <div className="teacher__div checked__role" onClick={() => {checkRole('student__div')}}>
                   <div className="teacher__div__text">
                     <p className='teacher__div__title'>Пользователь</p>
                     <p className="teacher__div__description">Решай тесты и получи больше баллов!</p>
                   </div>
                 </div>
-                <div className="student__div">
+                {/* <div className="student__div"> */}
+                <div className="student__div" onClick={() => {checkRole('teacher__div')}}>
                   <div className="student__div__text">
                     <p className="student__div__title">Создатель</p>
                     <p className="student__div__description">Создавай, редактируй и проходи тесты сам!</p>

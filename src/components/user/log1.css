@@ -399,7 +399,7 @@ html {
     box-sizing: border-box;
     border-radius: 30px !important;
     margin-top: 25px;
-    background-color: #7D63AD;
+    /* background-color: #7D63AD; */
 }
 
 .teacher__div__text {
@@ -411,13 +411,15 @@ html {
     font-size: 24px;
     font-family: TT Firs Neue;
     line-height: 30.96px;
-    color: #ffffff;
+    /* color: #ffffff; */
+    /* color: #7D63AD; */
 }
 
 .teacher__div__description {
     margin-top: -14px;
     font-size: 16px;
-    color: #ffffffff;
+    /* color: #ffffffff; */
+    /* color: #7D63AD; */
     font-family: 'TT Firs Neue';
 }
 
@@ -428,7 +430,7 @@ html {
     box-sizing: border-box;
     border-radius: 30px !important;
     margin-top: 25px;
-    /* background-color: #7D63AD; */
+    /* background-color:#FFFFFF; */
 }
 
 .student__div__text {
@@ -440,12 +442,31 @@ html {
     font-size: 24px;
     font-family: TT Firs Neue;
     line-height: 30.96px;
-    color: #7D63AD;
+    /* color: #7D63AD; */
 }
 
 .student__div__description {
     margin-top: -14px;
     font-size: 16px;
-    color: #7D63AD;
+    /* color: #7D63AD; */
     font-family: 'TT Firs Neue';
+}
+
+.role__div {
+    width: 710px;
+    height: 82.02px;
+    border: 2px solid #7D63AD;
+    box-sizing: border-box;
+    border-radius: 30px !important;
+    margin-top: 25px;
+}
+
+.checked__role {
+    width: 710px;
+    height: 82.02px;
+    border: 2px solid #7D63AD;
+    box-sizing: border-box;
+    border-radius: 30px !important;
+    margin-top: 25px;
+    background-color: #7D63AD;
 }
