@@ -30,6 +30,9 @@ export default function App() {
   let [page, setPage] = useState(0)
   let [role, stRole] = useState()
 
+  let [name, setName] = useState('');
+  let [surname, setSurname] = useState('');
+
   function checkRole(className) {
     let teacher = document.querySelector('.teacher__div');
     let student = document.querySelector('.student__div');
@@ -52,7 +55,11 @@ export default function App() {
     }
   }
 
-  console.log(role)
+  function check() {
+    console.log(login);
+    console.log(password);
+    console.log(role);
+  }
 
 
   if (page === 0) {
@@ -157,7 +164,7 @@ export default function App() {
                 <a className="textreg" href="log-in" >Вход</a>
               </div>
               <div className="inputtype">
-                <p className="secondPageTitle">Выберите свою цель</p>
+                <p className="secondPageTitle" onClick={() => {check()}}>Выберите свою цель</p>
                 {/* <div className="teacher__div"> */}
                 <div className="teacher__div" onClick={() => {checkRole('student__div')}}>
                   <div className="teacher__div__text">
@@ -174,9 +181,13 @@ export default function App() {
                 </div>
               </div>
               <div className="button_c">
-                <button className="btn btn-primary ghg" onClick={() => { request() }}>
-                  {/* <div className="btn_text_ghg">Продолжить</div> */}
-                  Продолжить  
+                <button className="pageBackButton" onClick={() => {setPage(page - 1)}}>
+                  <div className="btn_text_ghgBack">
+                    Назад
+                  </div>
+                </button>
+                <button className="btn btn-primary ghg" onClick={() => { setPage(page + 1) }}>
+                  <div className="btn_text_ghg">Продолжить</div>  
                 </button>
               </div>
             </div>
@@ -185,6 +196,70 @@ export default function App() {
       </div>
 
     </div>
+    )
+  } else if (page === 2) {
+    return (
+        <div className="App">
+        <div className="logs">
+          <div className="back_registr">
+            <div className="circle">
+              <div className="circle_2"></div>
+              <div className="circle_1"></div>
+            </div>
+            <div className="right_up_quads">
+              <div className="right_up_quad1"></div>
+              <div className="right_up_quad2"></div>
+            </div>
+            <div className="restangle">
+              <div className="restangle_1 elemrest"></div>
+              <div className="restangle_2 elemrest"></div>
+              <div className="restangle_3 elemrest"></div>
+              <div className="restangle_4 elemrest"></div>
+              <div className="restangle_5 elemrest"></div>
+              <div className="restangle_6 elemrest"></div>
+              <div className="restangle_7 elemrest"></div>
+              <div className="restangle_8 elemrest"></div>
+            </div>
+            <div className="left_bottom_quad">
+              <div className="left_bottom_quad1 lbq"></div>
+              <div className="left_bottom_quad2 lbq"></div>
+              <div className="left_bottom_quad3 lbq"></div>
+            </div>
+            <div className="right_bottom_quad">
+              <div className="right_bottom_quad1 rbq"></div>
+              <div className="right_bottom_quad2 rbq">&#9650;</div>
+              <div className="right_bottom_quad3 rbq"></div>
+            </div>
+          </div>
+          <div className="loginform">
+            <div className="log">
+              <div className="logform needs-validation">
+                <div className="text_poll">PollHub</div>
+                <div className="dop_text">
+                  <a className="textrega" href="log-in">Регистрация</a>
+                  <a className="textreg" href="log-in" >Вход</a>
+                </div>
+                <div className="inputtype">
+                  <input type="login" placeholder="Имя" className="inputPassword" id="exampleInputEmail1" onChange={(e) => { setLogin(e.target.value) }} />
+                  <input placeholder="Фамилие" className="inputPassword" id="InputPassword1" onChange={(e) => { setPassword(e.target.value) }} />
+                  {/* <input placeholder="Huy" className="inputPassword"/> */}
+                </div>
+                <div className="button_c">
+                  <button className="pageBackButton" onClick={() => {setPage(page - 1)}}>
+                    <div className="btn_text_ghgBack">
+                      Назад
+                    </div>
+                  </button>
+                  <button className="btn btn-primary ghg" onClick={() => { setPage(page + 1) }}>
+                    <div className="btn_text_ghg">Зарегистрироваться</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     )
   }
 }

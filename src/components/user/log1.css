@@ -470,3 +470,22 @@ html {
     margin-top: 25px;
     background-color: #7D63AD;
 }
+
+.pageBackButton {
+    margin-right: 28px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.btn_text_ghgBack {
+    width: 143px;
+    height: 30.95px;
+    font-family: 'TT Firs Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    /* identical to box height */
+    margin: auto;
+    /* color: #FFFFFF; */
+}
