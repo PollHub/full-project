@@ -28,31 +28,31 @@ export default function App() {
   }
 
   let [page, setPage] = useState(0)
-  let [role, stRole] = useState('user')
+  let [role, stRole] = useState()
 
   function checkRole(className) {
     let teacher = document.querySelector('.teacher__div');
     let student = document.querySelector('.student__div');
     let checked = document.querySelector('.checked__role')
-    // console.log(document.querySelector('.'+className));
 
-    // checked.classList.remove('checked__role');
-    // checked.classList.forEach(i => {
-    //   console.log(i)
-    // })
+    let state = null
 
     if (className === 'student__div') {
       student.classList.remove('checked__role')
       teacher.classList.add('checked__role')
-      stRole('user');
+      // stRole('user');
+      state = 'user'
+      stRole(state)
     } else {
       teacher.classList.remove('checked__role')
       student.classList.add('checked__role')
-      stRole('student')
+      // stRole('student')
+      state = 'student'
+      stRole(state)
     }
-    console.log(role)
-    
   }
+
+  console.log(role)
 
 
   if (page === 0) {
@@ -159,7 +159,7 @@ export default function App() {
               <div className="inputtype">
                 <p className="secondPageTitle">Выберите свою цель</p>
                 {/* <div className="teacher__div"> */}
-                <div className="teacher__div checked__role" onClick={() => {checkRole('student__div')}}>
+                <div className="teacher__div" onClick={() => {checkRole('student__div')}}>
                   <div className="teacher__div__text">
                     <p className='teacher__div__title'>Пользователь</p>
                     <p className="teacher__div__description">Решай тесты и получи больше баллов!</p>
