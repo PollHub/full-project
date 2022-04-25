@@ -26,8 +26,8 @@ function App() {
               <Route exact path={"/tests/:id"} component={More}/>
               <Route exact path={"/questions/:id/:i"} component={Question}/>
               <Route exact path={"/finish/:id"} component={Finish}/>
-              <Route exact path={"/log-in"} component={Log}/>
-              <Route exact path={"/register"} component={Register}/>
+              <Route exact path={"/log-in"} component={Register}/>
+              <Route exact path={"/register"} component={Log}/>
             </Switch>
           </div>
         </div>

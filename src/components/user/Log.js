@@ -7,31 +7,57 @@ import './log1.css';
 
 export default function App() {
 
+  let [page, setPage] = useState(0)
+  let [role, stRole] = useState('')
+
   let [login, setLogin] = useState('');
   let [password, setPassword] = useState('');
 
-  function request() {
-    var formdata = new FormData();
-    formdata.append("username", login);
-    formdata.append("password", password);
-
-    var requestOptions = {
-      method: 'POST',
-      body: formdata,
-      redirect: 'follow'
-    };
-
-    fetch("https://dfssd.herokuapp.com/auth/jwt/create/", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-  }
-
-  let [page, setPage] = useState(0)
-  let [role, stRole] = useState()
-
   let [name, setName] = useState('');
   let [surname, setSurname] = useState('');
+
+  function AddLog(login, password) {
+      console.log(login, password);
+
+      var formdata = new FormData();
+      formdata.append("username", login);
+      formdata.append("password", password);
+
+      var requestOptions = {
+          method: 'POST',
+          body: formdata,
+          redirect: 'follow'
+      };
+
+      fetch("https://dfssd.herokuapp.com/auth/jwt/create/", requestOptions)
+          .then(response => response.text())
+          .then(result => localStorage.setItem('acces', result))
+          .catch(error => alert('Что-то не верно'));
+  }
+
+  function request() {
+      var formdata = new FormData();
+      formdata.append("username", login);
+      // formdata.append("email", compair);
+      formdata.append("password", password);
+
+      var requestOptions = {
+          method: 'POST',
+          body: formdata,
+          redirect: 'follow'
+      };
+      console.log(login, password)
+
+      fetch("https://dfssd.herokuapp.com/auth/users/", requestOptions)
+          // .then(response => console.log(response))
+          .then(response => {
+              if (response.status === 201) {
+                  AddLog(login, password);
+              } else {
+                  console.log('bad')
+              }
+          })
+  }
 
   function checkRole(className) {
     let teacher = document.querySelector('.teacher__div');
@@ -105,8 +131,8 @@ export default function App() {
                 <a className="textreg" href="log-in" >Вход</a>
               </div>
               <div className="inputtype">
-                <input type="login" placeholder="E-mail" className="inputPassword" id="exampleInputEmail1" onChange={(e) => { setLogin(e.target.value) }} />
-                <input placeholder="Пароль" className="inputPassword" id="InputPassword1" onChange={(e) => { setPassword(e.target.value) }} />
+                <input defaultValue={login} type="login" placeholder="E-mail" className="inputPassword" id="exampleInputEmail1" onChange={(e) => { setLogin(e.target.value) }} />
+                <input defaultValue={password} placeholder="Пароль" className="inputPassword" id="InputPassword1" onChange={(e) => { setPassword(e.target.value) }} />
                 {/* <input placeholder="Huy" className="inputPassword"/> */}
               </div>
               <div className="lg-3 form-check">
@@ -165,15 +191,15 @@ export default function App() {
               </div>
               <div className="inputtype">
                 <p className="secondPageTitle" onClick={() => {check()}}>Выберите свою цель</p>
-                {/* <div className="teacher__div"> */}
-                <div className="teacher__div" onClick={() => {checkRole('student__div')}}>
+                {/* <div className="teacher__div"> */} 
+                <div className={role === 'user' ? 'teacher__div checked__role' : 'teacher__div'} onClick={() => {checkRole('student__div')}}>
                   <div className="teacher__div__text">
                     <p className='teacher__div__title'>Пользователь</p>
                     <p className="teacher__div__description">Решай тесты и получи больше баллов!</p>
                   </div>
                 </div>
                 {/* <div className="student__div"> */}
-                <div className="student__div" onClick={() => {checkRole('teacher__div')}}>
+                <div className={role === 'student' ? 'student__div checked__role' : 'student__div'} onClick={() => {checkRole('teacher__div')}}>
                   <div className="student__div__text">
                     <p className="student__div__title">Создатель</p>
                     <p className="student__div__description">Создавай, редактируй и проходи тесты сам!</p>
@@ -240,8 +266,8 @@ export default function App() {
                   <a className="textreg" href="log-in" >Вход</a>
                 </div>
                 <div className="inputtype">
-                  <input type="login" placeholder="Имя" className="inputPassword" id="exampleInputEmail1" onChange={(e) => { setLogin(e.target.value) }} />
-                  <input placeholder="Фамилие" className="inputPassword" id="InputPassword1" onChange={(e) => { setPassword(e.target.value) }} />
+                  <input defaultValue={name} type="login" placeholder="Имя" className="inputPassword" id="exampleInputEmail1" onChange={(e) => { setName(e.target.value) }} />
+                  <input defaultValue={surname} placeholder="Фамилие" className="inputPassword" id="InputPassword1" onChange={(e) => { setSurname(e.target.value) }} />
                   {/* <input placeholder="Huy" className="inputPassword"/> */}
                 </div>
                 <div className="button_c">
@@ -250,7 +276,7 @@ export default function App() {
                       Назад
                     </div>
                   </button>
-                  <button className="btn btn-primary ghg" onClick={() => { setPage(page + 1) }}>
+                  <button className="btn btn-primary ghg" onClick={() => {request()}}>
                     <div className="btn_text_ghg">Зарегистрироваться</div>
                   </button>
                 </div>
