@@ -2,19 +2,21 @@ import {Link} from 'react-router-dom'
 
 function Header() {
     return (
-        <div className="header">
-            <div className="header__container">
-                <div className="header__left">
-                    <Link to="/user" className='link'>User</Link>
-                </div>
-                <div>
-                    <Link to="/" className='link'><h1>PollHub</h1></Link>
-                </div>
-                <div className="header__right">
-                    <Link to="/create" className='link'>Create Test</Link>
+            <div className="header">
+                <div className='header__block'>
+                    <div className='header__left'>
+                        {/* <p className='title'>PollHub</p> */}
+                        <div className='title'>PollHub</div>
+                        <Link className='link' to={'/'}><p className='header__main'>Главная</p></Link>
+                        <Link className='link' to={'/create'}><p className='header__test'>Тесты</p></Link>
+                    </div>
+                    <div className='header__right'>
+                        <div className='photo__block'>
+                            img
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
 
