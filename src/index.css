@@ -20,6 +20,7 @@ input {
 .header {
   /* padding: 25px 0; */
   /* background-color: #03787c; */
+  /* backdrop-filter: blur(30px); */
 }
 
 .title {
@@ -37,6 +38,9 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* backdrop-filter: blur(30px); */
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
 }
 
 .header__left {
@@ -61,7 +65,33 @@ input {
 }
 
 .photo__block {
-  width: 25px;
+  width: 60px;
+  height: 60px;
+}
+
+.back__logos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.circles {
+  position: absolute;
+  left: 800px;
+}
+
+.square__one {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #000;
+  left: 400px;
+}
+
+.circle__one {
+  width: 94.67px;
+  height: 95.24px;
+  border-radius: 50%;
+  border: 7px solid #7D63AD;
 }
 
 /* .link:not(:last-child) {
