@@ -32,15 +32,16 @@ input {
 }
 
 .header__block {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   /* background-color: #faebd7; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* backdrop-filter: blur(30px); */
+  backdrop-filter: blur(30px);
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px 0;
+  border: 1px solid #000;
 }
 
 .header__left {
@@ -456,4 +457,34 @@ h2 {
   padding: 10px 0;
   font-size: 15px;
   margin-top: 5px;
+}
+
+.profile {
+  max-width: 1100px;
+  padding: 100px 0;
+  margin: 0 auto;
+  background-color: aquamarine;
+}
+
+.profile__user {
+  display: flex;
+}
+
+.profile__user__data {
+  margin-left: 40px;
+}
+
+.profile__user__img {
+  width: 164px;
+  height: 164px;
+}
+
+.profile__user__name {
+  font-family: TT Firs Neue;
+  font-size: 28px;
+}
+
+.profile__user__mail {
+  font-family: TT Firs Neue;
+  font-size: 18px;
 }

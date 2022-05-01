@@ -22,7 +22,9 @@ function Header() {
                     </div>
                     <div className='header__right'>
                         <div>
-                            <img className='photo__block' src={user}/>
+                            <Link to={"/profile"}>
+                                <img className='photo__block' src={user}/>
+                            </Link>
                         </div>
                     </div>
                 </div>

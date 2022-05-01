@@ -9,6 +9,7 @@ import Question from "./components/question/Question";
 import Finish from "./components/finish/Finish";
 import Log from "./components/user/Log";
 import Register from "./components/user/Registe";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route exact path={"/finish/:id"} component={Finish}/>
               <Route exact path={"/log-in"} component={Register}/>
               <Route exact path={"/register"} component={Log}/>
+              <Route exact path={"/profile"} component={Profile}/>
             </Switch>
           </div>
         </div>
