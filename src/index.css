@@ -472,6 +472,7 @@ h2 {
 
 .profile__user__data {
   margin-left: 40px;
+  margin-top: 10px;
 }
 
 .profile__user__img {
@@ -487,4 +488,27 @@ h2 {
 .profile__user__mail {
   font-family: TT Firs Neue;
   font-size: 18px;
+  color: #5E5E5E;
+}
+
+.profile__user__change {
+  font-family: TT Firs Neue;
+  font-size: 16px;
+  color: #5E5E5E;
+}
+
+.profile__last__tests p {
+  font-size: TT Firs Neue;
+  font-size: 28px;
+  color: #000000;
+  margin-top: 28px;
+}
+
+.profile__last__test {
+  width: 1100px;
+  height: 82px;
+  padding: 0 28px;
+  border-radius: 30px;
+  border: 1px solid #000;
+  margin-bottom: 24px;
 }
